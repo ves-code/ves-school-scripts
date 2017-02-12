@@ -2,7 +2,7 @@ orig_dir=${PWD}
 
 mkdir ${HOME}/Software
 cd ${HOME}
-rm -rf Documents Music Public Videos Pictures Templates
+rm -rf Documents Music Public Videos Pictures Templates examples.desktop
 mkdir Runs
 mkdir Runs/Tutorial-1
 mkdir Runs/Tutorial-2
