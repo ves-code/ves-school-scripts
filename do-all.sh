@@ -11,7 +11,7 @@ mkdir Runs/Tutorial-4
 mkdir Runs/Tutorial-5
 mkdir Runs/Tutorial-6
 
-cd {orig_dir}
+cd ${orig_dir}
 ./install-ubuntu-packages.sh
 ./install-manual.sh 
 ./install-plumed.sh
