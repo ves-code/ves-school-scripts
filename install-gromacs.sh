@@ -11,7 +11,7 @@ GROMACS_ROOT=${HOME}/software/gromacs-5.1.4
 cd gromacs-5.1.4-source
 
 source ${HOME}/software/plumed2-ves/sourceme.sh
-plumed --no-mpi patch --shared -e gromacs-5.1.4
+plumed --no-mpi patch -p -f --shared -e gromacs-5.1.4
 
 mkdir build_serial_static
 cd build_serial_static
