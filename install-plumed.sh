@@ -8,9 +8,9 @@ cd plumed2-ves
 ./configure  --enable-matheval --enable-modules=all 
 make -j 4 
 
-echo "source ${PWD}/sourceme.sh" >> ~/.profile
-echo ':let &runtimepath.=','.$PLUMED_VIMPATH' >> ~/.vimrc
-echo ':set completeopt=longest,menuone'       >> ~/.vimrc
+echo "source ${PWD}/sourceme.sh" >> ~/.bashrc
+echo ":let &runtimepath.=','.\$PLUMED_VIMPATH" >> ~/.vimrc
+echo ":set completeopt=longest,menuone"       >> ~/.vimrc
 
 cd ${orig_dir}
 
