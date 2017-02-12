@@ -1,16 +1,16 @@
 orig_dir=${PWD}
-cd ${HOME}/software
+cd ${HOME}/Software
 
 wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.4.tar.gz 
 tar xvf gromacs-5.1.4.tar.gz 
 rm -f gromacs-5.1.4.tar.gz 
 mv gromacs-5.1.4 gromacs-5.1.4-source
 
-GROMACS_ROOT=${HOME}/software/gromacs-5.1.4
+GROMACS_ROOT=${HOME}/Software/gromacs-5.1.4
 
 cd gromacs-5.1.4-source
 
-source ${HOME}/software/plumed2-ves/sourceme.sh
+source ${HOME}/Software/plumed2-ves/sourceme.sh
 plumed --no-mpi patch -p -f --shared -e gromacs-5.1.4
 
 mkdir build_serial_static
@@ -48,7 +48,7 @@ cd ..
 
 rm -rf gromacs-5.1.4-source
 
-echo "source ${GROMACS_ROOT}/bin/GMXRC" >> ~/.profile
+echo "source ${GROMACS_ROOT}/bin/GMXRC" >> ~/.bashrc
 
 cd ${orig_dir}
 

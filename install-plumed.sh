@@ -1,6 +1,6 @@
 orig_dir=${PWD}
 
-cd ${HOME}/software
+cd ${HOME}/Software
 
 git clone https://github.com/ves-code/plumed2-ves.git plumed2-ves
 

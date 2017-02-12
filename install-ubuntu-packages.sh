@@ -22,7 +22,6 @@ python-numpy
 python-scipy
 python-matplotlib
 python-statsmodels
-chromium-browser
 "
 
 for p in ${packages}
