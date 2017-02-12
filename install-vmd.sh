@@ -6,4 +6,5 @@ cd src
 sudo make install
 cd ../../
 rm -f vmd-1.9.3*tar.gz
+rm -rf vmd-1.9.3 
 
