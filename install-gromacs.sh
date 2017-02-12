@@ -24,7 +24,7 @@ cmake .. \
   -DGMX_OPENMP=OFF \
   -DBUILD_SHARED_LIBS=OFF \
   -DGMX_GPU=OFF
-make
+make -j 4 
 make install
 cd ..
 
@@ -40,7 +40,7 @@ cmake .. \
   -DBUILD_SHARED_LIBS=OFF \
   -DGMX_GPU=OFF \
   -DGMX_BUILD_MDRUN_ONLY=ON
-make
+make -j 4 
 make install
 cd ..
 
