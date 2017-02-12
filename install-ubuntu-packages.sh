@@ -20,6 +20,7 @@ gfortran
 python-numpy
 python-scipy
 python-matplotlib
+python-statsmodels
 "
 
 for p in ${packages}
