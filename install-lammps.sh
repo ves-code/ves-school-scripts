@@ -6,7 +6,7 @@ git clone -b stable https://github.com/lammps/lammps.git lammps
 
 cd lammps
 
-source ${HOME}/software/plumed-ves/sourceme.sh
+source ${HOME}/software/plumed2-ves/sourceme.sh
 plumed --no-mpi patch -p -f -e lammps-6Apr13
 
 cd src
