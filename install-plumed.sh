@@ -5,6 +5,7 @@ cd ${HOME}/software
 git clone https://github.com/ves-code/plumed2-ves.git plumed2-ves
 
 cd plumed2-ves 
+source ${PWD}/sourceme.sh
 ./configure  --enable-matheval --enable-modules=all 
 make -j 4 
 
