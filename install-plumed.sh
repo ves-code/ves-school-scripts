@@ -2,7 +2,7 @@ orig_dir=${PWD}
 
 cd ${HOME}/software
 
-git clone git@github.com:ves-code/plumed2-ves.git plumed2-ves
+git clone https://github.com/ves-code/plumed2-ves.git plumed2-ves
 
 cd plumed2-ves 
 ./configure  --enable-matheval --enable-modules=all 
