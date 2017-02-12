@@ -1,3 +1,6 @@
+sudo apt-get update
+sudo apt-get upgrade -y 
+
 packages="
 libmatheval-dev
 libfftw3-dev
@@ -26,5 +29,5 @@ python-statsmodels
 for p in ${packages}
 do
   echo ${p}
-  #isudo apt-get install -y ${p}
+  #sudo apt-get install -y ${p}
 done
