@@ -2,7 +2,11 @@ orig_dir=${PWD}
 
 cd ${HOME}/software
 
-git clone -b stable https://github.com/lammps/lammps.git lammps
+#git clone -b stable https://github.com/lammps/lammps.git lammps
+wget http://lammps.sandia.gov/tars/lammps-stable.tar.gz
+tar xvf lammps-stable.tar.gz 
+rm -rf lammps-stable.tar.gz 
+mv $(ls | grep lammps-) lammps
 
 cd lammps
 
