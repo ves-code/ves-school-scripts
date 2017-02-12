@@ -8,8 +8,6 @@ gsl-bin
 libgsl0-dev
 libopenmpi-dev
 openmpi-bin
-graphviz
-doxygen-latex
 libatlas-base-dev
 git
 cmake
