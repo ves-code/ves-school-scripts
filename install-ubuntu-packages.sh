@@ -26,6 +26,5 @@ python-statsmodels
 
 for p in ${packages}
 do
-  echo ${p}
-  #sudo apt-get install -y ${p}
+  sudo apt-get install -y ${p}
 done
