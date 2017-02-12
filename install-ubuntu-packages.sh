@@ -22,9 +22,13 @@ python-numpy
 python-scipy
 python-matplotlib
 python-statsmodels
+chromium-browser
 "
 
 for p in ${packages}
 do
   sudo apt-get install -y ${p}
 done
+
+sudo apt-get clean
+sudo apt-get autoclean
