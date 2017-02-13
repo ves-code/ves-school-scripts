@@ -6,6 +6,8 @@
 #
 # The software will be installed into directory given by
 # the INSTALL_DIR variable. Be careful not to overwrite other installtions.
+#
+# Takes around 1.3 Gb of space in total 
 
 # User configurable variables
 #
@@ -141,7 +143,7 @@ cmake .. \
   -DGMX_BUILD_MDRUN_ONLY=ON
 make -j 4
 make install
-cd ${INSTALL_DIR}
+cd ${INSTALL_DIR}/Software
 rm -rf gromacs-5.1.4-source
 gromacs_dir=${GROMACS_ROOT}
 echo "source ${gromacs_dir}/bin/GMXRC" >> ~/.bashrc
