@@ -41,11 +41,10 @@ fi
 cd ${INSTALL_DIR}
 git clone https://github.com/ves-code/plumed2-ves.git plumed2-ves
 cd plumed2-ves
+plumed_dir=${PWD}
 source ${PWD}/sourceme.sh
 ./configure  --enable-matheval --enable-modules=all
 make -j 4
-source ${HOME}/Software/plumed2-ves/sourceme.sh
-plumed_dir=${PWD}
 echo "source ${plumed_dir}/sourceme.sh" >> ~/.bashrc
 ################################
 
