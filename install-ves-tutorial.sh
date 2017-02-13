@@ -14,7 +14,7 @@ INSTALL_DIR=${HOME}/VES-Tutorial
 # YES if you want to install VMD also
 INSTALL_VMD=YES
 # YES if you want to install GROMACS also
-INSTALL_GROMACS=NO
+INSTALL_GROMACS=YES
 # YES if shortcuts to the manual should be placed on the desktop
 MANUAL_DESKTOP_SHORTCUTS=YES
 
@@ -29,6 +29,7 @@ mkdir Runs/Tutorial-3
 mkdir Runs/Tutorial-4
 mkdir Runs/Tutorial-5
 mkdir Runs/Tutorial-6
+mkdir Software
 
 
 echo "# Added for VES tutorial on: $(date)" >> ~/.bashrc
@@ -47,7 +48,7 @@ fi
 ################################
 
 # PLUMED 2
-cd ${INSTALL_DIR}
+cd ${INSTALL_DIR}/Software
 git clone https://github.com/ves-code/plumed2-ves.git plumed2-ves
 cd plumed2-ves
 plumed_dir=${PWD}
@@ -58,7 +59,7 @@ echo "source ${plumed_dir}/sourceme.sh" >> ~/.bashrc
 ################################
 
 # LAMMPS
-cd ${INSTALL_DIR}
+cd ${INSTALL_DIR}/Software
 wget http://lammps.sandia.gov/tars/lammps-stable.tar.gz
 tar xvf lammps-stable.tar.gz
 rm -rf lammps-stable.tar.gz
@@ -81,17 +82,17 @@ echo "PATH=\$PATH:${lammps_dir}/src" >> ~/.bashrc
 # VMD
 if [[ "$INSTALL_VMD" == "YES" ]]
 then
-cd ${INSTALL_DIR}
+cd ${INSTALL_DIR}/Software
 wget http://www.ks.uiuc.edu/Research/vmd/vmd-1.9.3/files/final/vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz
 tar xvf `ls vmd-1.9.3*tar.gz`
 rm -f vmd-1.9.3*tar.gz
 mv vmd-1.9.3 vmd-1.9.3-source
 cd vmd-1.9.3-source
-mkdir ${INSTALL_DIR}/vmd
-mkdir ${INSTALL_DIR}/vmd/bin
-mkdir ${INSTALL_DIR}/vmd/lib
-export VMDINSTALLBINDIR=${INSTALL_DIR}/vmd/bin
-export VMDINSTALLLIBRARYDIR=${INSTALL_DIR}/vmd/lib
+mkdir ${INSTALL_DIR}/Software/vmd
+mkdir ${INSTALL_DIR}/Software/vmd/bin
+mkdir ${INSTALL_DIR}/Software/vmd/lib
+export VMDINSTALLBINDIR=${INSTALL_DIR}/Software/vmd/bin
+export VMDINSTALLLIBRARYDIR=${INSTALL_DIR}/Software/vmd/lib
 ./configure
 cd src
 make install
@@ -104,7 +105,7 @@ fi
 # Gromacs
 if [[ "$INSTALL_GROMACS" == "YES" ]]
 then
-cd ${INSTALL_DIR}
+cd ${INSTALL_DIR}/Software
 wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.4.tar.gz
 tar xvf gromacs-5.1.4.tar.gz
 rm -f gromacs-5.1.4.tar.gz
