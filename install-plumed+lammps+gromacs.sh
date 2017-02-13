@@ -16,6 +16,9 @@ INSTALL_GROMACS=NO
 # YES if shortcuts to the manual should be placed on the desktop
 MANUAL_DESKTOP_SHORTCUTS=NO
 
+# Make 
+mkdir ${INSTALL_DIR}
+
 # PLUMED 2 Manual with VES tutorial
 cd ${INSTALL_DIR}
 wget http://github.com/ves-code/doc-ves-master/archive/gh-pages.zip
