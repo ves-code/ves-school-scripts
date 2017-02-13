@@ -18,6 +18,7 @@ make yes-USER-PLUMED
 make yes-RIGID
 make yes-KSPACE
 make yes-MOLECULE
+make yes-MANYBODY
 make mpi
 
 sudo ln -sf ${HOME}/Software/lammps/src/lmp_mpi /usr/local/bin/
