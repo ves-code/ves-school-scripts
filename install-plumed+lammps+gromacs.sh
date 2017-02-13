@@ -1,28 +1,36 @@
 
-
-
 # Script for installing PLUMED 2 with the VES module and LAMMPS and GROMACS
-# that are patched with that versio of PLUMED 2.
+# that are patched with that version of PLUMED 2.
 # Requirements are at least git, c++ compiler, mpi lib (e.g. openmpi),
 # and perhaps something more
 #
 # The software will be installed into directory given by
-# the INSTALL_ROOT variable. Be careful not to overwrite other installtions.
+# the INSTALL_DIR variable. Be careful not to overwrite other installtions.
 
-INSTALL_ROOT=${HOME}/Software_VES
-
-cd ${INSTALL_ROOT}
+# User configurable variables
+#
+# Directory to install the software
+INSTALL_DIR=${HOME}/Software_VES
+# YES if you want to install GROMACS also
+INSTALL_GROMACS=NO
+# YES if shortcuts to the manual should be placed on the desktop
+MANUAL_DESKTOP_SHORTCUTS=NO
 
 # PLUMED 2 Manual with VES tutorial
+cd ${INSTALL_DIR}
 wget http://github.com/ves-code/doc-ves-master/archive/gh-pages.zip
 unzip gh-pages.zip
 rm -f gh-pages.zip
-mv doc-ves-master-gh-pages ${INSTALL_ROOT}/VES-Manual
-ln -sf ${INSTALL_ROOT}/VES-Manual/index.html ${HOME}/Desktop/VES-Manual
-ln -sf ${INSTALL_ROOT}/VES-Manual/user-doc/html/ves_tutorial_lugano_2017.html ${HOME}/Desktop/VES-Tutorials
+mv doc-ves-master-gh-pages ${INSTALL_DIR}/VES-Manual
+if [[ "$MANUAL_DESKTOP_SHORTCUTS" == "YES" ]]
+then
+  ln -sf ${INSTALL_DIR}/VES-Manual/index.html ${HOME}/Desktop/VES-Manual
+  ln -sf ${INSTALL_DIR}/VES-Manual/user-doc/html/ves_tutorial_lugano_2017.html ${HOME}/Desktop/VES-Tutorials
+fi
 ################################
 
 # PLUMED 2
+cd ${INSTALL_DIR}
 git clone https://github.com/ves-code/plumed2-ves.git plumed2-ves
 cd plumed2-ves
 source ${PWD}/sourceme.sh
@@ -34,7 +42,7 @@ plumed_dir=${PWD}
 ################################
 
 # LAMMPS
-cd ${INSTALL_ROOT}
+cd ${INSTALL_DIR}
 wget http://lammps.sandia.gov/tars/lammps-stable.tar.gz
 tar xvf lammps-stable.tar.gz
 rm -rf lammps-stable.tar.gz
@@ -51,8 +59,10 @@ make mpi
 lammps_dir=${PWD}
 ################################
 
+if [[ "$INSTALL_GROMACS" == "YES" ]]
+then
 # Gromacs
-cd ${INSTALL_ROOT}
+cd ${INSTALL_DIR}
 wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.4.tar.gz
 tar xvf gromacs-5.1.4.tar.gz
 rm -f gromacs-5.1.4.tar.gz
@@ -88,10 +98,10 @@ cmake .. \
   -DGMX_BUILD_MDRUN_ONLY=ON
 make -j 4
 make install
-cd ..
-cd ..
+cd ${INSTALL_DIR}
 rm -rf gromacs-5.1.4-source
 gromacs_dir=${GROMACS_ROOT}
+fi
 ################################
 
 
@@ -101,11 +111,11 @@ echo " "
 echo "#############################################"
 echo "Everything done!"
 echo ""
-echo "The Manual is installed at ${INSTALL_ROOT}/VES-Manual"
+echo "The Manual is installed at ${INSTALL_DIR}/VES-Manual"
 echo ""
 echo "You should add the following to your ~/.bashrc or ~/.profile"
 echo " "
 echo "source ${plumed_dir}/sourceme.sh"
 echo "alias lmp_mpi=\"${lammps_dir}/src/lmp_mpi\""
-echo "source ${gromacs_dir}/bin/GMXRC"
+if [[ "$INSTALL_GROMACS" == "YES" ]]; then echo "source ${gromacs_dir}/bin/GMXRC"; fi
 echo " "
