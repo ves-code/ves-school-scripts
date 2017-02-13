@@ -13,6 +13,15 @@ INSTALL_ROOT=${HOME}/Software_VES
 
 cd ${INSTALL_ROOT}
 
+# PLUMED 2 Manual with VES tutorial
+wget http://github.com/ves-code/doc-ves-master/archive/gh-pages.zip
+unzip gh-pages.zip
+rm -f gh-pages.zip
+mv doc-ves-master-gh-pages ${INSTALL_ROOT}/VES-Manual
+ln -sf ${INSTALL_ROOT}/VES-Manual/index.html ${HOME}/Desktop/VES-Manual
+ln -sf ${INSTALL_ROOT}/VES-Manual/user-doc/html/ves_tutorial_lugano_2017.html ${HOME}/Desktop/VES-Tutorials
+################################
+
 # PLUMED 2
 git clone https://github.com/ves-code/plumed2-ves.git plumed2-ves
 cd plumed2-ves
@@ -22,6 +31,7 @@ make -j 4
 #echo "source ${PWD}/sourceme.sh" >> ~/.bashrc
 source ${HOME}/Software/plumed2-ves/sourceme.sh
 plumed_dir=${PWD}
+################################
 
 # LAMMPS
 cd ${INSTALL_ROOT}
@@ -39,6 +49,7 @@ make yes-MOLECULE
 make yes-MANYBODY
 make mpi
 lammps_dir=${PWD}
+################################
 
 # Gromacs
 cd ${INSTALL_ROOT}
@@ -81,10 +92,17 @@ cd ..
 cd ..
 rm -rf gromacs-5.1.4-source
 gromacs_dir=${GROMACS_ROOT}
+################################
+
+
+
 
 echo " "
 echo "#############################################"
 echo "Everything done!"
+echo ""
+echo "The Manual is installed at ${INSTALL_ROOT}/VES-Manual"
+echo ""
 echo "You should add the following to your ~/.bashrc or ~/.profile"
 echo " "
 echo "source ${plumed_dir}/sourceme.sh"
