@@ -22,6 +22,7 @@ python-numpy
 python-scipy
 python-matplotlib
 python-statsmodels
+gawk
 "
 
 for p in ${packages}
