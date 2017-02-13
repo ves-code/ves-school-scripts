@@ -12,7 +12,7 @@
 # Directory to install the software
 INSTALL_DIR=${HOME}/Software_VES
 # YES if you want to install VMD also
-INSTALL_GROMACS=YES
+INSTALL_VMD=YES
 # YES if you want to install GROMACS also
 INSTALL_GROMACS=NO
 # YES if shortcuts to the manual should be placed on the desktop
@@ -21,6 +21,8 @@ MANUAL_DESKTOP_SHORTCUTS=YES
 #
 mkdir ${INSTALL_DIR}
 cp ~/.bashrc ~/.bashrc.ves-backup-Feb2017
+
+echo "# Added for VES tutorial on: $(date)" >> ~/.bashrc
 
 # PLUMED 2 Manual with VES tutorial
 cd ${INSTALL_DIR}
@@ -71,11 +73,15 @@ echo "PATH=\$PATH:${lammps_dir}/src" >> ~/.bashrc
 # VMD
 if [[ "$INSTALL_VMD" == "YES" ]]
 then
+cd ${INSTALL_DIR}
 wget http://www.ks.uiuc.edu/Research/vmd/vmd-1.9.3/files/final/vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz
 tar xvf `ls vmd-1.9.3*tar.gz`
 rm -f vmd-1.9.3*tar.gz
 mv vmd-1.9.3 vmd-1.9.3-source
 cd vmd-1.9.3-source
+mkdir ${INSTALL_DIR}/vmd
+mkdir ${INSTALL_DIR}/vmd/bin
+mkdir ${INSTALL_DIR}/vmd/lib
 export VMDINSTALLBINDIR=${INSTALL_DIR}/vmd/bin
 export VMDINSTALLLIBRARYDIR=${INSTALL_DIR}/vmd/lib
 ./configure
@@ -132,6 +138,7 @@ gromacs_dir=${GROMACS_ROOT}
 echo "source ${gromacs_dir}/bin/GMXRC" >> ~/.bashrc
 fi
 ################################
+echo "#-------------------" >> ~/.bashrc
 
 echo " "
 echo "#############################################"
