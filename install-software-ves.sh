@@ -10,7 +10,7 @@
 # User configurable variables
 #
 # Directory to install the software
-INSTALL_DIR=${HOME}/Software_VES
+INSTALL_DIR=${HOME}/VES-Tutorial
 # YES if you want to install VMD also
 INSTALL_VMD=YES
 # YES if you want to install GROMACS also
@@ -21,6 +21,15 @@ MANUAL_DESKTOP_SHORTCUTS=YES
 #
 mkdir ${INSTALL_DIR}
 cp ~/.bashrc ~/.bashrc.ves-backup-Feb2017
+cd ${INSTALL_DIR}
+mkdir Runs
+mkdir Runs/Tutorial-1
+mkdir Runs/Tutorial-2
+mkdir Runs/Tutorial-3
+mkdir Runs/Tutorial-4
+mkdir Runs/Tutorial-5
+mkdir Runs/Tutorial-6
+
 
 echo "# Added for VES tutorial on: $(date)" >> ~/.bashrc
 
