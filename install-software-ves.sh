@@ -89,7 +89,7 @@ make install
 cd ../../
 rm -rf vmd-1.9.3-source
 echo "PATH=\$PATH:${VMDINSTALLBINDIR}" >> ~/.bashrc
-if
+fi
 ################################
 
 # Gromacs
