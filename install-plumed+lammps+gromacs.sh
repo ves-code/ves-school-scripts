@@ -14,10 +14,11 @@ INSTALL_DIR=${HOME}/Software_VES
 # YES if you want to install GROMACS also
 INSTALL_GROMACS=NO
 # YES if shortcuts to the manual should be placed on the desktop
-MANUAL_DESKTOP_SHORTCUTS=NO
+MANUAL_DESKTOP_SHORTCUTS=YES
 
-# Make 
+#
 mkdir ${INSTALL_DIR}
+cp ~/.bashrc ~/.bashrc.ves-backup-Feb2017
 
 # PLUMED 2 Manual with VES tutorial
 cd ${INSTALL_DIR}
@@ -39,9 +40,9 @@ cd plumed2-ves
 source ${PWD}/sourceme.sh
 ./configure  --enable-matheval --enable-modules=all
 make -j 4
-#echo "source ${PWD}/sourceme.sh" >> ~/.bashrc
 source ${HOME}/Software/plumed2-ves/sourceme.sh
 plumed_dir=${PWD}
+echo "source ${plumed_dir}/sourceme.sh" >> ~/.bashrc
 ################################
 
 # LAMMPS
@@ -60,6 +61,7 @@ make yes-MOLECULE
 make yes-MANYBODY
 make mpi
 lammps_dir=${PWD}
+echo "alias lmp_mpi=\"${lammps_dir}/src/lmp_mpi\"" >> ~/.bashrc
 ################################
 
 if [[ "$INSTALL_GROMACS" == "YES" ]]
@@ -104,21 +106,22 @@ make install
 cd ${INSTALL_DIR}
 rm -rf gromacs-5.1.4-source
 gromacs_dir=${GROMACS_ROOT}
+echo "source ${gromacs_dir}/bin/GMXRC" >> ~/.bashrc
 fi
 ################################
 
-
-
-
 echo " "
 echo "#############################################"
+echo " "
 echo "Everything done!"
 echo ""
 echo "The Manual is installed at ${INSTALL_DIR}/VES-Manual"
 echo ""
-echo "You should add the following to your ~/.bashrc or ~/.profile"
+echo "The following commands have been added to your ~\.bashrc"
 echo " "
 echo "source ${plumed_dir}/sourceme.sh"
 echo "alias lmp_mpi=\"${lammps_dir}/src/lmp_mpi\""
 if [[ "$INSTALL_GROMACS" == "YES" ]]; then echo "source ${gromacs_dir}/bin/GMXRC"; fi
+echo " "
+echo "#############################################"
 echo " "
