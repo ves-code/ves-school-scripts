@@ -11,6 +11,8 @@
 #
 # Directory to install the software
 INSTALL_DIR=${HOME}/Software_VES
+# YES if you want to install VMD also
+INSTALL_GROMACS=YES
 # YES if you want to install GROMACS also
 INSTALL_GROMACS=NO
 # YES if shortcuts to the manual should be placed on the desktop
@@ -60,13 +62,34 @@ make yes-KSPACE
 make yes-MOLECULE
 make yes-MANYBODY
 make mpi
+cd ..
 lammps_dir=${PWD}
-echo "alias lmp_mpi=\"${lammps_dir}/src/lmp_mpi\"" >> ~/.bashrc
+echo "PATH=\$PATH:${lammps_dir}/src" >> ~/.bashrc
+#echo "alias lmp_mpi=\"${lammps_dir}/src/lmp_mpi\"" >> ~/.bashrc
 ################################
 
+# VMD
+if [[ "$INSTALL_VMD" == "YES" ]]
+then
+wget http://www.ks.uiuc.edu/Research/vmd/vmd-1.9.3/files/final/vmd-1.9.3.bin.LINUXAMD64-CUDA8-OptiX4-OSPRay111p1.opengl.tar.gz
+tar xvf `ls vmd-1.9.3*tar.gz`
+rm -f vmd-1.9.3*tar.gz
+mv vmd-1.9.3 vmd-1.9.3-source
+cd vmd-1.9.3-source
+export VMDINSTALLBINDIR=${INSTALL_DIR}/vmd/bin
+export VMDINSTALLLIBRARYDIR=${INSTALL_DIR}/vmd/lib
+./configure
+cd src
+make install
+cd ../../
+rm -rf vmd-1.9.3-source
+echo "PATH=\$PATH:${VMDINSTALLBINDIR}" >> ~/.bashrc
+if
+################################
+
+# Gromacs
 if [[ "$INSTALL_GROMACS" == "YES" ]]
 then
-# Gromacs
 cd ${INSTALL_DIR}
 wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.4.tar.gz
 tar xvf gromacs-5.1.4.tar.gz
@@ -120,7 +143,9 @@ echo ""
 echo "The following commands have been added to your ~\.bashrc"
 echo " "
 echo "source ${plumed_dir}/sourceme.sh"
-echo "alias lmp_mpi=\"${lammps_dir}/src/lmp_mpi\""
+echo "PATH=\$PATH:${lammps_dir}/src"
+#echo "alias lmp_mpi=\"${lammps_dir}/src/lmp_mpi\""
+if [[ "$INSTALL_VMD" == "YES" ]]; then echo "PATH=\$PATH:${VMDINSTALLBINDIR}"; fi
 if [[ "$INSTALL_GROMACS" == "YES" ]]; then echo "source ${gromacs_dir}/bin/GMXRC"; fi
 echo " "
 echo "#############################################"
