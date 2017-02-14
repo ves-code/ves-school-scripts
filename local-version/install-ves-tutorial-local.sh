@@ -20,7 +20,7 @@ INSTALL_GROMACS=YES
 # YES if shortcuts to the manual should be placed on the desktop
 MANUAL_DESKTOP_SHORTCUTS=YES
 
-PACKAGE_DIR=${PWD}
+PACKAGE_DIR=${PWD}/packages/
 
 #
 mkdir ${INSTALL_DIR}
