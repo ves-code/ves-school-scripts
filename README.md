@@ -17,8 +17,9 @@ See also Packages needed below
 
 To install the software and tutorial you need to run the _install-ves-tutorial.sh_
 script. Everything will be installed in a self-contained directory
-that is given by INSTALL_DIR variable in that script. By default it is
-${HOME}/VES-Tutorial.
+that is by default ${HOME}/VES-Tutorial. This can be changed by
+changing the INSTALL_DIR variable the script. 
+
 
 If you have a 32 bit system you will need to run _install-vmd-32bit.sh_
 to install a 32 bit version of VMD.
