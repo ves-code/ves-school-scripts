@@ -1,3 +1,5 @@
+# Libs needed
+# apt-get install libglu1-mesa libxi-dev libxmu-dev libglu1-mesa-dev
 
 INSTALL_DIR=${HOME}/VES-Tutorial
 
