@@ -1,5 +1,3 @@
-# ves-school-scripts
-
 Installation scripts for
 the [MARVEL-VES school](https://sites.google.com/site/vesschool2017/) in Lugano February 2017
 
