@@ -75,7 +75,7 @@ make yes-MANYBODY
 make mpi
 cd ..
 lammps_dir=${PWD}
-echo "PATH=\$PATH:${lammps_dir}/src" >> ~/.bashrc
+echo "PATH=${lammps_dir}/src:\$PATH" >> ~/.bashrc
 #echo "alias lmp_mpi=\"${lammps_dir}/src/lmp_mpi\"" >> ~/.bashrc
 ################################
 
@@ -156,7 +156,7 @@ echo ""
 echo "The following commands have been added to your ~\.bashrc"
 echo " "
 echo "source ${plumed_dir}/sourceme.sh"
-echo "PATH=\$PATH:${lammps_dir}/src"
+echo "PATH=${lammps_dir}/src:\$PATH"
 #echo "alias lmp_mpi=\"${lammps_dir}/src/lmp_mpi\""
 if [[ "$INSTALL_VMD" == "YES" ]]; then echo "PATH=\$PATH:${VMDINSTALLBINDIR}"; fi
 if [[ "$INSTALL_GROMACS" == "YES" ]]; then echo "source ${gromacs_dir}/bin/GMXRC"; fi

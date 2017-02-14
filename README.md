@@ -12,6 +12,9 @@ The _install-ves-tutorial.sh_ script will install
 - LAMMPS patched with PLUMED 2
 - GROMACS patched with PLUMED 2
 
+If you have already VMD installed you can disable the VMD installation
+by putting _INSTALL_VMD=NO_ in the script.
+
 Requirements are to have at least git, c++ compiler, cmake, mpi library (e.g. openmpi).
 See also Packages needed below
 
@@ -32,7 +35,7 @@ the _install-ves-tutorial.sh_ script.
 
 
 # Python modules needed
-One of the tutorials requires you to have the following modules available
+One of the tutorials requires you to have the following python modules installed
 - numpy
 - scipy
 - matplotlib
