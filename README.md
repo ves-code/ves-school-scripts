@@ -21,7 +21,7 @@ script. Everything will be installed in a self-contained directory
 that is given by INSTALL_DIR variable in that script. By default it is
 ${HOME}/VES-Tutorial.
 
-If you have a 32 bit system you should will need to run _install-vmd-32bit.sh_
+If you have a 32 bit system you will need to run _install-vmd-32bit.sh_
 to install a 32 bit version of VMD.
 
 
