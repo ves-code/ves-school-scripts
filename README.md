@@ -2,8 +2,10 @@ Installation scripts for
 the [MARVEL-VES school](https://sites.google.com/site/vesschool2017/) in Lugano February 2017
 
 # Scripts
-Scripts to install on Ubuntu and other Linux the software needed
+Scripts to install on Ubuntu and other Linux system the software needed
 for the VES tutorial.
+
+__This scripts will most likely not work on Mac__
 
 The _install-ves-tutorial.sh_ script will install
 - PLUMED 2 with VES module
@@ -58,9 +60,6 @@ the _install-ubuntu-packages.sh_ to install them packages in Ubuntu.
 - gnuplot-qt
 - build-essential
 - python-gnuplot
-- vim,
-- emacs
-- gfortran
 - python-numpy
 - python-scipy
 - python-matplotlib
