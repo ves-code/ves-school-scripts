@@ -5,7 +5,7 @@ the [MARVEL-VES school](https://sites.google.com/site/vesschool2017/) in Lugano 
 Scripts to install on Ubuntu and other Linux the software needed
 for the VES tutorial.
 
-It will install
+The _install-ves-tutorial.sh_ script will install
 - PLUMED 2 with VES module
 - Manual and VES tutorial
 - VMD (64 bit version)
@@ -18,7 +18,7 @@ See also Packages needed below
 To install the software and tutorial you need to run the _install-ves-tutorial.sh_
 script. Everything will be installed in a self-contained directory
 that is by default _${HOME}/VES-Tutorial_. This can be changed by
-changing the _INSTALL_DIR_ variable the script. 
+changing the _INSTALL_DIR_ variable the script.
 
 
 If you have a 32 bit system you will need to run _install-vmd-32bit.sh_
