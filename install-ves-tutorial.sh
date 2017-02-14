@@ -7,13 +7,13 @@
 # The software will be installed into directory given by
 # the INSTALL_DIR variable. Be careful not to overwrite other installtions.
 #
-# Takes around 1.3 Gb of space in total 
+# Takes around 1.3 Gb of space in total
 
 # User configurable variables
 #
 # Directory to install the software
 INSTALL_DIR=${HOME}/VES-Tutorial
-# YES if you want to install VMD also
+# YES if you want to install the 64bit version VMD also
 INSTALL_VMD=YES
 # YES if you want to install GROMACS also
 INSTALL_GROMACS=YES
